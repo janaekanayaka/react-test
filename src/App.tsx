@@ -9,7 +9,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
    console.log(data);
    useEffect(() => {
-        fetchPostByUser(1).then((data) => {
+        fetchPostByUser().then((data) => {
           setData(data);
           setLoading(false);
         })
@@ -32,13 +32,13 @@ function App() {
     <div>
       <ul>
       {data && data.map((post) => (
-          <ProductCard
-            key={post.id}
-            image={post.image}
-            title={post.title}
-            description={post.description}
-            price={`$${post.price.toFixed(2)}`}
-          />
+      <ProductCard
+        key={post._id}
+        image={post.image}
+        title={post.title}
+        description={post.description}
+        price={`$${post.price.toFixed(2)}`}
+        />
         ))}
       </ul>
 
